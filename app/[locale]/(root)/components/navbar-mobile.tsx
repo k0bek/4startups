@@ -2,10 +2,13 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { navbarLinks } from "@/constants";
-import { Button } from "../ui/button";
-import BurgerButton from "./burger-button";
+import { Button } from "../../../../components/ui/button";
+import BurgerButton from "../../../../components/landing/burger-button";
+import { useTranslations } from "next-intl";
 
 const NavbarMobile = () => {
+  const t = useTranslations("LandingPage");
+
   return (
     <div className="nav-mobile">
       <div className="flex items-center py-4">
@@ -40,16 +43,16 @@ const NavbarMobile = () => {
                   key={link}
                   className="hover:text-hover transition-all font-semibold"
                 >
-                  {link}
+                  {t(link)}
                 </Link>
               ))}
             </nav>
           </div>
-          <Button variant="default">Login</Button>
-          <div className="animated-border-sheet"></div>
+          <Button variant="default">{t("Log in")}</Button>
+          <div className="animated-border-sheet"/>
         </SheetContent>
       </Sheet>
-      <div className="animated-border"></div>
+      <div className="animated-border"/>
     </div>
   );
 };
