@@ -21,20 +21,20 @@ const Navbar = () => {
               height={32}
             />
           </Link>
-          <nav>
+          {/* <nav>
             <ul className="flex md:gap-10 lg:gap-20">
               {navbarLinks.map((link) => (
                 <li key={link}>
                   <Link
                     href={link}
-                    className="text-secondary-foreground hover:text-hover cursor-pointer transition-all"
+                    className="text-secondary-foreground hover:text-hover cursor-pointer transition-all font-semibold"
                   >
                     {t(link)}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav> */}
           <div className="flex items-center gap-2">
             <ChangeLanguageButton />
             <HoverBorderGradientButton>

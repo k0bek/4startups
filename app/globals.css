@@ -11,7 +11,9 @@
     --primary-foreground: #2155c5;
 
     --secondary: #a5a5a6;
-    --secondary-foreground: #7d7d7d;
+    --secondary-foreground: #6f6f6f;
+
+    --heading: #2f3147;
 
     --text-hover: #134cc6;
     --accent: #003cbd;
@@ -27,6 +29,8 @@
 
     --secondary: #a5a5a6;
     --secondary-foreground: #b4b4b4;
+
+    --heading: #2f3147;
 
     --text-hover: #4680ff;
     --accent: #003cbd;
@@ -52,6 +56,6 @@
   }
 
   .select-item {
-    @apply cursor-pointer transition-all hover:bg-slate-100 flex gap-2 text-black dark:text-white
+    @apply cursor-pointer transition-all hover:bg-slate-100 flex gap-2 text-black dark:text-white;
   }
 }

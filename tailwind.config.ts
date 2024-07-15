@@ -28,6 +28,7 @@ const config = {
         border: "var(--border)",
         accent: "var(--accent)",
         hover: "var(--text-hover)",
+        heading: "var(--heading)",
       },
       animation: {
         border: "border 4s ease infinite",
