@@ -4,23 +4,50 @@
 
 @layer base {
   :root {
-    --background: #e6f2ff;
-    --primary: #4da6ff;
-    --accent: #80ccff;
-    --text: #333333;
+    --background: #6a89ad;
+    --foreground: #1f3f5f;
+
+    --primary: #c6e3ff;
+    --primary-foreground: #2155c5;
+
+    --secondary: #a5a5a6;
+    --secondary-foreground: #b4b4b4;
+
+    --text-hover: #134cc6;
+    --accent: #003cbd;
+    --border: #94a3b8;
   }
 
   .dark {
-    --background: #1a1f2b;
-    --primary: #2c3e50;
-    --accent: #3498db;
-    --text: #ffffff;
+    --background: #6a89ad;
+    --foreground: #1f3f5f;
+
+    --primary: #c6e3ff;
+    --primary-foreground: #2155c5;
+
+    --secondary: #a5a5a6;
+    --secondary-foreground: #b4b4b4;
+
+    --text-hover: #4680ff;
+    --accent: #003cbd;
+    --border: #94a3b8;
   }
 }
 
-@layer base {
-  * {
+@layer utilities {
+  .nav {
+    @apply hidden md:flex sticky z-[50] inset-x-0 top-0 w-full transition-all  shadow-primary border-primary animate-border overflow-hidden;
   }
-  body {
+
+  .nav-mobile {
+    @apply z-[50] md:hidden flex justify-between px-2 items-center shadow-primary animate-border overflow-hidden relative;
+  }
+
+  .animated-border {
+    @apply absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-primary-foreground to-secondary-foreground bg-[length:400%_400%] animate-border;
+  }
+
+  .animated-border-sheet {
+    @apply absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-primary-foreground to-secondary-foreground bg-[length:400%_400%] animate-border;
   }
 }
