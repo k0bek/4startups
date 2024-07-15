@@ -3,13 +3,20 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedHeading from "./animated-heading";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Header = () => {
   const t = useTranslations("LandingPage");
+  const locale = useLocale();
+  const delay = locale === "en" ? 3 : 3.5;
+
   useGSAP(() => {
     gsap.to("#heading", { opacity: 1 });
-    gsap.to("#paragraph", { opacity: 1, y: -30, delay: 3 });
+    gsap.to("#paragraph", {
+      opacity: 1,
+      y: -30,
+      delay,
+    });
   }, []);
 
   return (
