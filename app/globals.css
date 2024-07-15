@@ -50,4 +50,8 @@
   .animated-border-sheet {
     @apply absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-primary-foreground to-secondary-foreground bg-[length:400%_400%] animate-border;
   }
+
+  .select-item {
+    @apply cursor-pointer transition-all hover:bg-slate-100 flex gap-2 text-black dark:text-white
+  }
 }

@@ -7,7 +7,7 @@ import ChangeLanguageButton from "../../../../components/landing/change-language
 import { useTranslations } from "next-intl";
 import { navbarLinks } from "@/constants";
 
-const Navbar = async () => {
+const Navbar = () => {
   const t = useTranslations("LandingPage");
   return (
     <nav className="nav">

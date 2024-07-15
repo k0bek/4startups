@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import React from "react";
 import {
   Select,
@@ -14,23 +14,24 @@ import { useRouter } from "next/navigation";
 
 const ChangeLanguageButton = () => {
   const t = useTranslations("LandingPage");
+  const locale = useLocale();
   const router = useRouter();
 
-  function handleLocaleChange(newLocale: string): void {
+  function handleLocaleChange(newLocale: Locale): void {
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
     router.refresh();
   }
 
   return (
-    <Select onValueChange={(value: string) => handleLocaleChange(value)}>
+    <Select
+      onValueChange={(value: Locale) => handleLocaleChange(value)}
+      value={locale}
+    >
       <SelectTrigger className="bg-transparent text-secondary-foreground">
         <Globe className="scale-90 text-secondary-foreground" />
       </SelectTrigger>
-      <SelectContent className="bg-white flex flex-col">
-        <SelectItem
-          className="cursor-pointer transition-all hover:bg-slate-100 flex gap-2 text-black "
-          value="en"
-        >
+      <SelectContent className="bg-white flex flex-col dark:bg-black">
+        <SelectItem className="select-item" value="en">
           <div className="flex items-center gap-2">
             <Image
               src="/assets/uk-flag.svg"
@@ -38,13 +39,10 @@ const ChangeLanguageButton = () => {
               width={30}
               height={50}
             />
-            <span>{t("English")}</span>
+            <span className="dark:text-white">{t("English")}</span>
           </div>
         </SelectItem>
-        <SelectItem
-          className="cursor-pointer transition-all hover:bg-slate-100 text-black"
-          value="pl"
-        >
+        <SelectItem className="select-item" value="pl">
           <div className="flex items-center gap-2">
             <Image
               src="/assets/poland-flag.svg"
@@ -52,7 +50,7 @@ const ChangeLanguageButton = () => {
               width={30}
               height={50}
             />
-            <span>{t("Polish")}</span>
+            <span className="dark:text-white">{t("Polish")}</span>
           </div>
         </SelectItem>
       </SelectContent>
