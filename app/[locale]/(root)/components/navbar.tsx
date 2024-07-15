@@ -24,10 +24,9 @@ const Navbar = async () => {
           <nav>
             <ul className="flex md:gap-10 lg:gap-20">
               {navbarLinks.map((link) => (
-                <li>
+                <li key={link}>
                   <Link
                     href={link}
-                    key={link}
                     className="text-secondary-foreground hover:text-hover cursor-pointer transition-all"
                   >
                     {t(link)}
