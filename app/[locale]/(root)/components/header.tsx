@@ -40,32 +40,34 @@ const Header = () => {
   }, []);
 
   return (
-    <FollowerPointerCard title={title}>
-      <div className="flex justify-center text-center w-full mt-10">
-        <div className="xl:w-1/2 flex flex-col gap-4">
-          <h1
-            className="text-[1.5rem] sm:text-[2.5rem] md:text-[2.9rem] font-bold text-heading dark:text-white px-10"
-            id="heading"
-          >
-            <AnimatedHeading />
-          </h1>
-          <p
-            className="text-hover dark:text-primary-foreground text-[1rem] md:text-[1.2rem] opacity-0 dark:drop-shadow-sm"
-            id="paragraph"
-          >
-            {t(
-              "Empower startups by predicting and enhancing growth opportunities for sustained success"
-            )}
-          </p>
-          <p
-            id="manage"
-            className="font-bold text-lg md:text-xl opacity-0 dark:text-white"
-          >
-            {t("What would you like to predict?")}
-          </p>
+    <header className=" w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.05]">
+      <FollowerPointerCard title={title}>
+        <div className="flex justify-center text-center w-full">
+          <div className="xl:w-1/2 flex flex-col gap-4 my-10">
+            <h1
+              className="text-[1.5rem] sm:text-[2.5rem] md:text-[2.9rem] font-bold text-heading dark:text-white px-10"
+              id="heading"
+            >
+              <AnimatedHeading />
+            </h1>
+            <p
+              className="text-hover dark:text-primary-foreground text-[1rem] md:text-[1.2rem] opacity-0 dark:drop-shadow-sm"
+              id="paragraph"
+            >
+              {t(
+                "Empower startups by predicting and enhancing growth opportunities for sustained success"
+              )}
+            </p>
+            <p
+              id="manage"
+              className="font-bold text-lg md:text-xl opacity-0 dark:text-white"
+            >
+              {t("What would you like to predict?")}
+            </p>
+          </div>
         </div>
-      </div>
-    </FollowerPointerCard>
+      </FollowerPointerCard>
+    </header>
   );
 };
 
