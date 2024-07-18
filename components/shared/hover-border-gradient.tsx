@@ -6,12 +6,14 @@ import { cn } from "@/lib/utils";
 export function HoverBorderGradientButton({
   children,
   className,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <div className="flex justify-center text-center">
+    <div className="flex justify-center text-center" id={id}>
       <HoverBorderGradient
         containerClassName="rounded-full w-full bg-white"
         as="button"

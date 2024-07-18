@@ -5,6 +5,7 @@ import gsap from "gsap";
 import AnimatedHeading from "./animated-heading";
 import { useLocale, useTranslations } from "next-intl";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
+import Card from "./cards-section";
 
 const Header = () => {
   const t = useTranslations("LandingPage");
@@ -40,12 +41,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className=" w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.05]">
+    <header className=" w-full px-4 sm:px-10">
       <FollowerPointerCard title={title}>
         <div className="flex justify-center text-center w-full">
-          <div className="xl:w-1/2 flex flex-col gap-4 my-10">
+          <div className="xl:w-[55%] flex flex-col gap-4 my-10">
             <h1
-              className="text-[1.5rem] sm:text-[2.5rem] md:text-[2.9rem] font-bold text-heading dark:text-white px-10"
+              className="text-[1.5rem] sm:text-[2.1rem] md:text-[2.4rem] font-bold text-heading dark:text-white"
               id="heading"
             >
               <AnimatedHeading />
