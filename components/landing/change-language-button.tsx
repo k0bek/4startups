@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { Locale } from "@/types";
 
 const ChangeLanguageButton = () => {
   const t = useTranslations("LandingPage");
