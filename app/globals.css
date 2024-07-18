@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #121212;
+    --background: #f3f6ff;
     --foreground: #1f3f5f;
 
     --primary: #c6e3ff;
@@ -40,11 +40,11 @@
 
 @layer utilities {
   .nav {
-    @apply hidden md:flex sticky z-[50] inset-x-0 top-0 w-full transition-all  shadow-primary border-primary animate-border overflow-hidden bg-white dark:bg-background;
+    @apply hidden md:flex h-20 sticky z-[50] inset-x-0 top-0 w-full transition-all  shadow-primary border-primary animate-border overflow-hidden bg-white dark:bg-background;
   }
 
   .nav-mobile {
-    @apply z-[50] md:hidden flex justify-between px-2 items-center shadow-primary animate-border overflow-hidden sticky inset-x-0 top-0 w-full bg-white dark:bg-background;
+    @apply z-[50] md:hidden flex justify-between px-2 items-center shadow-primary animate-border overflow-hidden sticky inset-x-0 top-0 h-20 w-full bg-white dark:bg-background;
   }
 
   .animated-border {
@@ -58,15 +58,15 @@
   .select-item {
     @apply cursor-pointer transition-all hover:bg-slate-100 flex gap-2 text-black dark:text-white;
   }
-  
-  .cards-section{
-    @apply flex flex-col justify-center items-center gap-10 opacity-0 px-5
+
+  .cards-section {
+    @apply flex flex-col justify-center items-center gap-10 opacity-0 px-5;
   }
 
-  .cards-section-item{
-    @apply flex flex-col items-center text-center lg:w-1/4 gap-5 border-[1px] border-primary-foreground p-8 rounded-lg transition-all relative cursor-pointer hover:bg-blue-700/20 
+  .cards-section-item {
+    @apply flex flex-col items-center text-center gap-5 border-[1px] border-primary-foreground p-8 rounded-lg transition-all relative cursor-pointer hover:bg-blue-700/20 lg:w-1/4;
   }
-  .cards-section-item-selected-box{
-    @apply absolute top-2 left-2 w-7 h-7 border-[1px] border-primary-foreground rounded-lg flex justify-center items-center z-10 bg-white
+  .cards-section-item-selected-box {
+    @apply absolute top-2 left-2 w-7 h-7 border-[1px] border-primary-foreground rounded-lg flex justify-center items-center z-10 bg-white;
   }
 }

@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { navbarLinks } from "@/constants";
-import { Button } from "../../../../components/ui/button";
-import BurgerButton from "../../../../components/landing/burger-button";
 import { useTranslations } from "next-intl";
+import BurgerButton from "@/components/landing/burger-button";
+import { Button } from "@/components/ui/button";
 
 const NavbarMobile = () => {
   const t = useTranslations("LandingPage");

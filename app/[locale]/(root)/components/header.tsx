@@ -5,7 +5,6 @@ import gsap from "gsap";
 import AnimatedHeading from "./animated-heading";
 import { useLocale, useTranslations } from "next-intl";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
-import Card from "./cards-section";
 
 const Header = () => {
   const t = useTranslations("LandingPage");
@@ -41,7 +40,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className=" w-full px-4 sm:px-10">
+    <header className="w-full px-4 sm:px-1">
       <FollowerPointerCard title={title}>
         <div className="flex justify-center text-center w-full">
           <div className="xl:w-[55%] flex flex-col gap-4 my-10">

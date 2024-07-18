@@ -1,11 +1,10 @@
 import Link from "next/link";
-import MaxWidthWrapper from "../../../../components/shared/max-width-cointainer";
 import Image from "next/image";
-import { HoverBorderGradientButton } from "../../../../components/shared/hover-border-gradient";
 import { ArrowRight } from "lucide-react";
-import ChangeLanguageButton from "../../../../components/landing/change-language-button";
 import { useTranslations } from "next-intl";
-import { navbarLinks } from "@/constants";
+import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
+import MaxWidthWrapper from "@/components/shared/max-width-cointainer";
+import ChangeLanguageButton from "@/components/landing/change-language-button";
 
 const Navbar = () => {
   const t = useTranslations("LandingPage");

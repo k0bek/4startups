@@ -7,12 +7,14 @@ import {
   Check,
   CircuitBoard,
   FolderKanban,
+  TrendingUpIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
+
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
 
 export const cardsList = [
   {
@@ -27,8 +29,13 @@ export const cardsList = [
   },
   {
     heading: "Strategic Planning",
-    text: "Develop a clear roadmap and actionable strategies to drive your startups success",
+    text: "Develop a clear roadmap and actionable strategies to drive your startup's success",
     icon: FolderKanban,
+  },
+  {
+    heading: "Performance Metrics",
+    text: "Track and analyze key performance indicators to measure progress and optimize operations",
+    icon: TrendingUpIcon,
   },
 ];
 
@@ -66,7 +73,7 @@ const CardsSection = () => {
 
   return (
     <div className="cards-section" id="cards_section">
-      <ul className="flex justify-center flex-col lg:flex-row md:mt-5 gap-5 lg:gap-10">
+      <ul className="flex justify-center flex-col lg:flex-row md:mt-5 gap-5 lg:gap-10 mb-20 lg:mb-0">
         {cardsList.map((card) => {
           const isSelected = selectedCards.includes(card.heading);
           return (
@@ -91,17 +98,17 @@ const CardsSection = () => {
                 )}
               </div>
               <card.icon className="scale-125 md:scale-150" />
-              <h3 className="text-lg md:text-[1.6rem] font-semibold">
+              <h3 className="text-lg md:text-[1.2rem] font-semibold">
                 {t(card.heading)}
               </h3>
-              <p className="text-sm -mt-1">{t(card.text)}</p>
+              <p className="text-sm -mt-3">{t(card.text)}</p>
             </li>
           );
         })}
       </ul>
-      <HoverBorderGradientButton id="btn">
-        <div className="flex items-center justify-center text-secondary-foreground hover:text-hover  duration-1000 ml-1 whitespace-nowrap w-[15rem] md:w-[27rem]">
-          {t("Get started")} <ArrowRight className="ml-1 scale-75" />
+      <HoverBorderGradientButton id="btn" className="pt-14">
+        <div className="flex items-center justify-center text-secondary-foreground hover:text-hover  duration-1000 ml-1 whitespace-nowrap w-[15rem] md:w-[27rem] text-xl font-semibold">
+          {t("Get started")} <ArrowRight className="ml-1" />
         </div>
       </HoverBorderGradientButton>
     </div>
