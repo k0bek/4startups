@@ -15,7 +15,7 @@ const UnlockGrowSection = () => {
 
   return (
     <section
-      className="px-5 flex items-center justify-between lg:mt-40 mt-32 opacity-0 flex-col-reverse lg:flex-row gap-6 lg:gap-0"
+      className="flex items-center justify-between lg:mt-40 mt-32 opacity-0 flex-col-reverse lg:flex-row gap-6 lg:gap-0"
       id="unlock-grow-section"
     >
       <div className="lg:w-[45%] flex flex-col gap-6">
@@ -32,7 +32,7 @@ const UnlockGrowSection = () => {
             <p className="font-semibold text-lg lg:text-xl">
               {t("Success Stories")}
             </p>
-            <span className="text-sm lg:text-base ">
+            <span className="text-sm lg:text-base">
               {t(
                 "Hear from startups who have achieved sustained success and strategic growth"
               )}
@@ -50,7 +50,7 @@ const UnlockGrowSection = () => {
           </div>
         </div>
       </div>
-      <img src="/assets/laptop.gif" className="rounded-xl lg:w-1/2" />
+      <img src="/assets/laptop.gif" className="rounded-xl w-full lg:w-1/2" />
     </section>
   );
 };

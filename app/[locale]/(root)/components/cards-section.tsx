@@ -106,7 +106,7 @@ const CardsSection = () => {
           );
         })}
       </ul>
-      <HoverBorderGradientButton id="btn" className="pt-14">
+      <HoverBorderGradientButton id="btn">
         <div className="flex items-center justify-center text-secondary-foreground hover:text-hover  duration-1000 ml-1 whitespace-nowrap w-[15rem] md:w-[27rem] text-xl font-semibold">
           {t("Get started")} <ArrowRight className="ml-1" />
         </div>

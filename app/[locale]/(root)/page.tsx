@@ -6,19 +6,21 @@ import MaxWidthWrapper from "@/components/shared/max-width-cointainer";
 import UnlockGrowSection from "./components/unlock-grow-section";
 import { reviewItems } from "@/lib/utils";
 import Header from "./components/header";
+import BlogList from "./components/blog/blog-list";
 
 export default function Home() {
   return (
     <>
       <BlockScroll />
       <Navbar />
-      <MaxWidthWrapper className="min-h-screen flex justify-center flex-col items-center my-0 lg:-my-20 bg">
+      <MaxWidthWrapper className="min-h-screen flex justify-center flex-col items-center my-0 lg:-my-20">
         <Header />
         <CardsSection />
       </MaxWidthWrapper>
       <InfiniteMovingCards direction="right" speed="slow" items={reviewItems} />
       <MaxWidthWrapper>
         <UnlockGrowSection />
+        <BlogList />
       </MaxWidthWrapper>
     </>
   );
