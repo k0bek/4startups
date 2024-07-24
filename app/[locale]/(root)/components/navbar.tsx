@@ -37,9 +37,12 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <ChangeLanguageButton />
             <HoverBorderGradientButton>
-              <div className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap">
+              <Link
+                href="/sign-in"
+                className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap"
+              >
                 {t("Get started")} <ArrowRight className="ml-1 scale-75" />
-              </div>
+              </Link>
             </HoverBorderGradientButton>
           </div>
         </div>

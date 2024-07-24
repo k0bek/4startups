@@ -10,17 +10,26 @@ import {
 } from "@/components/ui/select";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Locale } from "@/types";
 
 const ChangeLanguageButton = () => {
   const t = useTranslations("LandingPage");
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
+
+  console.log(pathname);
+
+  const isBlogPage = pathname.includes("/blog");
 
   function handleLocaleChange(newLocale: Locale): void {
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
     router.refresh();
+  }
+
+  if (isBlogPage) {
+    return null;
   }
 
   return (

@@ -15,8 +15,8 @@ const BlogListItem = async ({ post }: { post: Post }) => {
       <Image
         src={urlFor(post.mainImage).width(550).height(300).url()}
         alt={post.title}
-        width={500}
-        height={300}
+        width={700}
+        height={500}
         className="object-contain w-full bg-cover rounded-lg"
       />
       <div className="flex flex-col gap-1 mt-2">

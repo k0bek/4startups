@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    position: relative;
+    z-index: 0;
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M 0%2c220 C 57.6%2c200.2 172.8%2c128.2 288%2c121 C 403.2%2c113.8 460.8%2c180.6 576%2c184 C 691.2%2c187.4 748.8%2c138.6 864%2c138 C 979.2%2c137.4 1036.8%2c189.4 1152%2c181 C 1267.2%2c172.6 1382.4%2c113 1440%2c96L1440 560L0 560z' fill='%23184a7e'%3e%3c/path%3e%3cpath d='M 0%2c505 C 96%2c464.6 288%2c312.2 480%2c303 C 672%2c293.8 768%2c453 960%2c459 C 1152%2c465 1344%2c358.2 1440%2c333L1440 560L0 560z' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.04; /* Adjust the opacity value as needed */
+    z-index: -1;
+  }
   :root {
     --background: #f3f6ff;
     --foreground: #1f3f5f;
