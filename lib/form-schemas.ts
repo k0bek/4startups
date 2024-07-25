@@ -1,9 +1,7 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const useFormSchemaValidations = () => {
+export const useFormSchemas = () => {
   const t = useTranslations("AuthPages");
 
   const formSchemaSignUp = z.object({
@@ -47,5 +45,3 @@ export const useFormSchemaValidations = () => {
 
   return { formSchemaSignUp, formSchemaSignIn };
 };
-
-

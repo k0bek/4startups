@@ -16,10 +16,15 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { useFormSchemaValidations } from "@/hooks/use-form-schema";
+import { signup } from "@/actions/signup";
+import { useFormSchemas } from "@/lib/form-schemas";
+import { useState, useTransition } from "react";
 
 export function SignUpForm() {
-  const { formSchemaSignUp } = useFormSchemaValidations();
+  const [success, setSuccess] = useState<string | undefined>("");
+  const [error, setError] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
+  const { formSchemaSignUp } = useFormSchemas();
   const t = useTranslations("AuthPages");
   const { toast } = useToast();
   // 1. Define your form.
@@ -32,17 +37,33 @@ export function SignUpForm() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchemaSignUp>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    toast({
-      title: "Logged successfully",
-      description: "You are now logged in.",
-      variant: "success",
+    setError("");
+    setSuccess("");
+    startTransition(() => {
+      signup(values).then((res) => {
+        setError(res.error);
+        setSuccess(res.success);
+        if (res.success) {
+          toast({
+            title: res.success,
+            description: res.subSuccess,
+            variant: "success",
+          });
+        }
+        if (res.error) {
+          toast({
+            title: res.error,
+            description: res.subError,
+            variant: "destructive",
+          });
+        }
+      });
     });
-    console.log(values);
   }
+
+  console.log(error);
+  console.log(isPending);
 
   return (
     <Form {...form}>
@@ -54,7 +75,12 @@ export function SignUpForm() {
             <FormItem>
               <FormLabel>{t("Full name")}</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} className="w-full" />
+                <Input
+                  placeholder="John Doe"
+                  {...field}
+                  className="w-full"
+                  disabled={isPending}
+                />
               </FormControl>
               <FormMessage className="text-red-500" />
             </FormItem>
@@ -71,6 +97,7 @@ export function SignUpForm() {
                   placeholder="example@example.com"
                   {...field}
                   className="w-full"
+                  disabled={isPending}
                 />
               </FormControl>
               <FormMessage className="text-red-500" />
@@ -89,6 +116,7 @@ export function SignUpForm() {
                   {...field}
                   className="w-full"
                   type="password"
+                  disabled={isPending}
                 />
               </FormControl>
               <FormMessage className="text-red-500" />
@@ -96,7 +124,7 @@ export function SignUpForm() {
           )}
         />
         <div className="w-full flex flex-col gap-3 items-center">
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isPending}>
             {t("Sign Up")}
           </Button>
           <p>

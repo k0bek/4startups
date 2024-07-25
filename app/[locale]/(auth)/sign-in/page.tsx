@@ -2,8 +2,10 @@ import Image from "next/image";
 import React from "react";
 import { SignInForm } from "../components/sign-in-form";
 import { getTranslations } from "next-intl/server";
+import { auth } from "@/auth";
 
 const SignInPage = async () => {
+  const session = await auth();
   const t = await getTranslations("AuthPages");
   return (
     <div className="w-full">

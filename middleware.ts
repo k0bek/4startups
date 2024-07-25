@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
 import { locales, type Locale } from "@/config/locales";
+import NextAuth from "next-auth";
+import authConfig from "./auth.config";
 
 const nextIntlMiddleware = createMiddleware({
   locales,
@@ -20,6 +22,11 @@ export function customMiddleware(request: Request): NextResponse {
     },
   });
 }
+
+const { auth } = NextAuth(authConfig);
+// auth(async function middleware(req: NextRequest) {
+//   return null;
+// });
 
 // eslint-disable-next-line func-names
 export default function (req: NextRequest): NextResponse {

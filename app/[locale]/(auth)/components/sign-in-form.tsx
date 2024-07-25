@@ -16,10 +16,10 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { useFormSchemaValidations } from "@/hooks/use-form-schema";
+import { useFormSchemas } from "@/lib/form-schemas";
 
 export function SignInForm() {
-  const { formSchemaSignIn } = useFormSchemaValidations();
+  const { formSchemaSignIn } = useFormSchemas();
   const t = useTranslations("AuthPages");
   const { toast } = useToast();
   // 1. Define your form.
