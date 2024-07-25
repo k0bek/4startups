@@ -18,7 +18,7 @@
     "Market Analysis": "Analiza rynku",
     "Gain a deep understanding of your target market and identify untapped opportunities for growth": "Zdobądź dogłębną wiedzę na temat swojego docelowego rynku i zidentyfikuj niewykorzystane możliwości wzrostu.",
     "Strategic Planning": "Planowanie strategiczne",
-    "Develop a clear roadmap and actionable strategies to drive your startups success": "Opracuj jasny plan działania i konkretne strategie, aby napędzać sukces swojego startupu.",
+    "Develop a clear roadmap and actionable strategies to drive your startup's success": "Opracuj jasny plan działania i konkretne strategie, aby napędzać sukces swojego startupu.",
     "Unlocking Growth Opportunities for Startups": "Odkrywanie możliwości wzrostu dla startupów",
     "Discover the benefits of sustained success, improved market positioning, and strategic growth for startups": "Odkryj korzyści płynące z utrzymanego sukcesu, poprawy pozycji rynkowej i strategicznego wzrostu dla startupów.",
     "Success Stories": "Historie sukcesu",
@@ -45,6 +45,19 @@
     "Sign In": "Zaloguj się",
     "Dont have an account?": "Nie masz konta?",
     "Already have an account?": "Masz już konto?",
-    "Full name": "Imię i nazwisko"
+    "Full name": "Imię i nazwisko",
+    "Please enter your full name": "Wprowadź imię i nazwisko",
+    "Full name cannot exceed 50 characters": "Imię i nazwisko nie może przekraczać 50 znaków",
+    "Full name can only contain letters and spaces": "Imię i nazwisko może zawierać tylko litery i spacje",
+    "Please enter a valid email address": "Wprowadź poprawny adres email",
+    "Email cannot exceed 100 characters": "Adres email nie może przekraczać 100 znaków",
+    "Password must be at least 8 characters long": "Hasło musi mieć co najmniej 8 znaków",
+    "Password cannot exceed 100 characters": "Hasło nie może przekraczać 100 znaków",
+    "Password must contain at least one lowercase letter": "Hasło musi zawierać co najmniej jedną małą literę",
+    "Password must contain at least one uppercase letter": "Hasło musi zawierać co najmniej jedną wielką literę",
+    "Password must contain at least one number": "Hasło musi zawierać co najmniej jedną cyfrę",
+    "Password must contain at least one special character": "Hasło musi zawierać co najmniej jeden znak specjalny",
+    "Please enter your password": "Wprowadź hasło",
+    "Must have at least 8 characters": "Hasło musi mieć co najmniej 8 znaków"
   }
 }

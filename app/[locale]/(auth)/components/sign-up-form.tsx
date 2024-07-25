@@ -15,16 +15,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { formSchemaSignUp } from "./form-schemas";
 import { useTranslations } from "next-intl";
+import formSchemaValidations from "@/lib/utils/form-schema-validations";
 
 export function SignUpForm() {
+  const { formSchemaSignUp } = formSchemaValidations();
   const t = useTranslations("AuthPages");
   const { toast } = useToast();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchemaSignUp>>({
     resolver: zodResolver(formSchemaSignUp),
     defaultValues: {
+      fullName: "",
       email: "",
       password: "",
     },
@@ -83,7 +85,7 @@ export function SignUpForm() {
               <FormLabel>{t("Password")}</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Must have at least 8 characters"
+                  placeholder={t("Must have at least 8 characters")}
                   {...field}
                   className="w-full"
                   type="password"

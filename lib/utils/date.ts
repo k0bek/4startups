@@ -10,6 +10,4 @@ export function useEuropeanDate(isoDate: string) {
   const year = date.getFullYear();
 
   return `${day}-${month}-${year}`;
-
-  return europeanDate;
 }

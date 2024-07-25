@@ -18,7 +18,7 @@
     "Market Analysis": "Market Analysis",
     "Gain a deep understanding of your target market and identify untapped opportunities for growth": "Gain a deep understanding of your target market and identify untapped opportunities for growth.",
     "Strategic Planning": "Strategic Planning",
-    "Develop a clear roadmap and actionable strategies to drive your startups succes": "Develop a clear roadmap and actionable strategies to drive your startup's succes.",
+    "Develop a clear roadmap and actionable strategies to drive your startup's success": "Develop a clear roadmap and actionable strategies to drive your startup's succes.",
     "Unlocking Growth Opportunities for Startups": "Unlocking Growth Opportunities for Startups",
     "Discover the benefits of sustained success, improved market positioning, and strategic growth for startups": "Discover the benefits of sustained success, improved market positioning, and strategic growth for startups.",
     "Success Stories": "Success Stories",
@@ -45,6 +45,19 @@
     "Sign In": "Sign In",
     "Dont have an account?": "Don't have an account?",
     "Already have an account?": "Already have an account?",
-    "Full name": "Full name"
+    "Full name": "Full name",
+    "Please enter your full name": "Please enter your full name",
+    "Full name cannot exceed 50 characters": "Full name cannot exceed 50 characters",
+    "Full name can only contain letters and spaces": "Full name can only contain letters and spaces",
+    "Please enter a valid email address": "Please enter a valid email address",
+    "Email cannot exceed 100 characters": "Email cannot exceed 100 characters",
+    "Password must be at least 8 characters long": "Password must be at least 8 characters long",
+    "Password cannot exceed 100 characters": "Password cannot exceed 100 characters",
+    "Password must contain at least one lowercase letter": "Password must contain at least one lowercase letter",
+    "Password must contain at least one uppercase letter": "Password must contain at least one uppercase letter",
+    "Password must contain at least one number": "Password must contain at least one number",
+    "Password must contain at least one special character": "Password must contain at least one special character",
+    "Please enter your password": "Please enter your password",
+    "Must have at least 8 characters": "Must have at least 8 characters"
   }
 }
