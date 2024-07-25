@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-const formSchemaValidations = () => {
+export const useFormSchemaValidations = () => {
   const t = useTranslations("AuthPages");
 
   const formSchemaSignUp = z.object({
@@ -48,4 +48,4 @@ const formSchemaValidations = () => {
   return { formSchemaSignUp, formSchemaSignIn };
 };
 
-export default formSchemaValidations;
+
