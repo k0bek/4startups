@@ -1,9 +1,22 @@
-import { NextRequest, NextResponse } from "next/server";
-import createMiddleware from "next-intl/middleware";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import createIntlMiddleware from "next-intl/middleware";
+
+import { auth } from "@/auth";
 
 import { locales, type Locale } from "@/config/locales";
-import NextAuth from "next-auth";
-import authConfig from "./auth.config";
+import createMiddleware from "next-intl/middleware";
+
+const publicPages = ["/", "/sign-in", "/sign-up"];
+
+const authPages = ["/sign-in", "/sign-up"];
+
+const testPathnameRegex = (pages: string[], pathName: string): boolean => {
+  return RegExp(
+    `^(/(${locales.join("|")}))?(${pages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`,
+    "i"
+  ).test(pathName);
+};
 
 const nextIntlMiddleware = createMiddleware({
   locales,
@@ -11,29 +24,40 @@ const nextIntlMiddleware = createMiddleware({
   localePrefix: "never",
 });
 
-// Middleware to add custom header with current request URL
-export function customMiddleware(request: Request): NextResponse {
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-url", request.url);
+const authMiddleware = auth((req) => {
+  const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname);
+  const session = req.auth;
 
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
-}
+  // Redirect to sign-in page if not authenticated
+  if (!session && !isAuthPage) {
+    return NextResponse.redirect(new URL("/sign-in", req.nextUrl));
+  }
 
-const { auth } = NextAuth(authConfig);
-// auth(async function middleware(req: NextRequest) {
-//   return null;
-// });
+  // Redirect to home page if authenticated and trying to access auth pages
+  if (session && isAuthPage) {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
 
-// eslint-disable-next-line func-names
-export default function (req: NextRequest): NextResponse {
-  const response = customMiddleware(req);
   return nextIntlMiddleware(req);
-}
+});
+
+const middleware = (req: NextRequest) => {
+  const isPublicPage = testPathnameRegex(publicPages, req.nextUrl.pathname);
+  const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname);
+
+  if (isAuthPage) {
+    return (authMiddleware as any)(req);
+  }
+
+  if (isPublicPage) {
+    return nextIntlMiddleware(req);
+  } else {
+    return (authMiddleware as any)(req);
+  }
+};
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
+
+export default middleware;

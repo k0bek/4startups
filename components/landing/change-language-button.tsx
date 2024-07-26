@@ -19,8 +19,6 @@ const ChangeLanguageButton = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const isBlogPage = pathname.includes("/blog");
 
   function handleLocaleChange(newLocale: Locale): void {
