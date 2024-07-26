@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import createIntlMiddleware from "next-intl/middleware";
 
 import { auth } from "@/auth";
 

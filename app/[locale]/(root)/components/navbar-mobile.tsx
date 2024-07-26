@@ -48,11 +48,15 @@ const NavbarMobile = () => {
               ))}
             </nav>
           </div>
-          <Button variant="default">{t("Log in")}</Button>
-          <div className="animated-border-sheet"/>
+          <Link href="/sign-in" className="font-bold w-full">
+            <Button variant="default" className="w-full">
+              {t("Log in")}
+            </Button>
+          </Link>
+          <div className="animated-border-sheet" />
         </SheetContent>
       </Sheet>
-      <div className="animated-border"/>
+      <div className="animated-border" />
     </div>
   );
 };

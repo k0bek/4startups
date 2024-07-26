@@ -7,11 +7,13 @@ import UnlockGrowSection from "./components/unlock-grow-section";
 import { reviewItems } from "@/lib/utils";
 import Header from "./components/header";
 import BlogList from "./components/blog/blog-list";
+import NavbarMobile from "./components/navbar-mobile";
 
 export default function Home() {
   return (
     <>
       <BlockScroll />
+      <NavbarMobile />
       <Navbar />
       <MaxWidthWrapper className="min-h-screen flex justify-center flex-col items-center my-0 lg:-my-20">
         <Header />
