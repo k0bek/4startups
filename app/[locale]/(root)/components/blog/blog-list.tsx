@@ -17,7 +17,7 @@ const BlogList = async () => {
   const posts = await client.fetch(query);
 
   return (
-    <section className="md:mt-16">
+    <section className="md:mt-16 mt-4">
       <h2 className="text-2xl lg:text-4xl font-semibold mb-5 md:mb-10">
         {t("Gain some useful knowledge")}
       </h2>

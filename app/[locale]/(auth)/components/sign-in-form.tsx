@@ -16,13 +16,21 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { useFormSchemas } from "@/lib/form-schemas";
+import { useState } from "react";
+import { signin } from "@/actions/auth/signin";
 
 export function SignInForm() {
-  const { formSchemaSignIn } = useFormSchemas();
+  const [isPending, setIsPending] = useState(false);
   const t = useTranslations("AuthPages");
   const { toast } = useToast();
-  // 1. Define your form.
+
+  const formSchemaSignIn = z.object({
+    email: z
+      .string()
+      .email({ message: t("Please enter a valid email address") }),
+    password: z.string().min(1, { message: t("Please enter your password") }),
+  });
+
   const form = useForm<z.infer<typeof formSchemaSignIn>>({
     resolver: zodResolver(formSchemaSignIn),
     defaultValues: {
@@ -31,16 +39,17 @@ export function SignInForm() {
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchemaSignIn>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    toast({
-      title: "Logged successfully",
-      description: "You are now logged in.",
-      variant: "success",
-    });
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchemaSignIn>) {
+    setIsPending(true);
+    const res = await signin(values);
+    if (res?.error) {
+      toast({
+        title: t("You are not signed in"),
+        description: t("Please type email and password again"),
+        variant: "destructive",
+      });
+    }
+    setIsPending(false);
   }
 
   return (
@@ -57,6 +66,7 @@ export function SignInForm() {
                   placeholder="example@example.com"
                   {...field}
                   className="w-full"
+                  disabled={isPending}
                 />
               </FormControl>
               <FormMessage className="text-red-500" />
@@ -70,14 +80,19 @@ export function SignInForm() {
             <FormItem>
               <FormLabel>{t("Password")}</FormLabel>
               <FormControl>
-                <Input {...field} className="w-full" type="password" />
+                <Input
+                  {...field}
+                  className="w-full"
+                  type="password"
+                  disabled={isPending}
+                />
               </FormControl>
               <FormMessage className="text-red-500" />
             </FormItem>
           )}
         />
         <div className="w-full flex flex-col gap-3 items-center">
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isPending}>
             {t("Sign In")}
           </Button>
           <p>

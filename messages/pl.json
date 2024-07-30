@@ -34,7 +34,8 @@
     "The insights and visualizations provided by 4Startups were game-changing for our startup Their AI-driven approach gave us a clear picture of our market position and growth possibilities, setting us on the path to success": "Wglądy i wizualizacje dostarczone przez 4Startups były przełomowe dla naszego startupu. Ich podejście oparte na sztucznej inteligencji dało nam jasny obraz naszej pozycji rynkowej i możliwości wzrostu, stawiając nas na drodze do sukcesu.",
     "Gain some useful knowledge": "Poznaj nasze najświeższe wpisy",
     "Read article": "Przeczytaj artykuł",
-    "Published": "Opublikowano"
+    "Published": "Opublikowano",
+    "Go to dashboard": "Przejdź do dashboardu"
   },
   "AuthPages": {
     "Enter your credentials": "Wprowadź swoje dane uwierzytelniające.",
@@ -58,6 +59,10 @@
     "Password must contain at least one number": "Hasło musi zawierać co najmniej jedną cyfrę",
     "Password must contain at least one special character": "Hasło musi zawierać co najmniej jeden znak specjalny",
     "Please enter your password": "Wprowadź hasło",
-    "Must have at least 8 characters": "Hasło musi mieć co najmniej 8 znaków"
+    "Must have at least 8 characters": "Hasło musi mieć co najmniej 8 znaków",
+    "You are not signed in": "Nie jesteś zalogowany",
+    "Please type email and password again": "Wpisz email i hasło ponownie",
+    "You are signed in": "Jesteś zalogowany",
+    "Welcome back!": "Witamy ponownie!"
   }
 }

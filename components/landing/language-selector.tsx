@@ -13,7 +13,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { Locale } from "@/types";
 
-const ChangeLanguageButton = () => {
+const LanguageSelector = () => {
   const t = useTranslations("LandingPage");
   const locale = useLocale();
   const router = useRouter();
@@ -66,4 +66,4 @@ const ChangeLanguageButton = () => {
   );
 };
 
-export default ChangeLanguageButton;
+export default LanguageSelector;

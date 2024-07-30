@@ -1,0 +1,13 @@
+"use server";
+
+import prisma from "@/lib/prisma";
+
+export const getUserByEmail = async (email: string) => {
+  const user = prisma.user.findUnique({ where: { email } });
+  return user;
+};
+
+export const getUserById = async (id: string) => {
+  const user = prisma.user.findUnique({ where: { id } });
+  return user;
+};

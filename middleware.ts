@@ -6,9 +6,9 @@ import { auth } from "@/auth";
 import { locales, type Locale } from "@/config/locales";
 import createMiddleware from "next-intl/middleware";
 
-const publicPages = ["/", "/sign-in", "/sign-up"];
+const publicPages = ["/", "/sign-in", "/sign-up", "/blog", "/blog/[^/]+"];
 
-const authPages = ["/sign-in", "/sign-up"];
+const authPages = ["/sign-in", "/sign-up", "dashboard"];
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(
@@ -34,7 +34,7 @@ const authMiddleware = auth((req) => {
 
   // Redirect to home page if authenticated and trying to access auth pages
   if (session && isAuthPage) {
-    return NextResponse.redirect(new URL("/", req.nextUrl));
+    return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
   }
 
   return nextIntlMiddleware(req);

@@ -10,24 +10,54 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast, useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { signup } from "@/actions/signup";
-import { useFormSchemas } from "@/lib/form-schemas";
+import { signup } from "@/actions/auth/signup";
 import { useState, useTransition } from "react";
 
 export function SignUpForm() {
   const [success, setSuccess] = useState<string | undefined>("");
   const [error, setError] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-  const { formSchemaSignUp } = useFormSchemas();
   const t = useTranslations("AuthPages");
   const { toast } = useToast();
-  // 1. Define your form.
+
+  const formSchemaSignUp = z.object({
+    fullName: z
+      .string()
+      .min(1, { message: t("Please enter your full name") })
+      .max(50, { message: t("Full name cannot exceed 50 characters") })
+      .regex(/^[a-zA-Z\s]*$/, {
+        message: t("Full name can only contain letters and spaces"),
+      }),
+
+    email: z
+      .string()
+      .email({ message: t("Please enter a valid email address") })
+      .max(100, { message: t("Email cannot exceed 100 characters") }),
+
+    password: z
+      .string()
+      .min(8, { message: t("Password must be at least 8 characters long") })
+      .max(100, { message: t("Password cannot exceed 100 characters") })
+      .regex(/[a-z]/, {
+        message: t("Password must contain at least one lowercase letter"),
+      })
+      .regex(/[A-Z]/, {
+        message: t("Password must contain at least one uppercase letter"),
+      })
+      .regex(/[0-9]/, {
+        message: t("Password must contain at least one number"),
+      })
+      .regex(/[@$!%*?&#]/, {
+        message: t("Password must contain at least one special character"),
+      }),
+  });
+
   const form = useForm<z.infer<typeof formSchemaSignUp>>({
     resolver: zodResolver(formSchemaSignUp),
     defaultValues: {
@@ -61,9 +91,6 @@ export function SignUpForm() {
       });
     });
   }
-
-  console.log(error);
-  console.log(isPending);
 
   return (
     <Form {...form}>

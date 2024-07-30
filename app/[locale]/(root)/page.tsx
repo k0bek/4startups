@@ -8,16 +8,17 @@ import { reviewItems } from "@/lib/utils";
 import Header from "./components/header";
 import BlogList from "./components/blog/blog-list";
 import NavbarMobile from "./components/navbar-mobile";
+import { auth } from "@/auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+
   return (
     <>
       <BlockScroll />
-      <NavbarMobile />
-      <Navbar />
       <MaxWidthWrapper className="min-h-screen flex justify-center flex-col items-center my-0 lg:-my-20">
         <Header />
-        <CardsSection />
+        <CardsSection session={session} />
       </MaxWidthWrapper>
       <InfiniteMovingCards direction="right" speed="slow" items={reviewItems} />
       <MaxWidthWrapper>

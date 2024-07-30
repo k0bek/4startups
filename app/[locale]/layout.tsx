@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/shared/theme-provider";
 import { ModeToggle } from "@/components/shared/mode-toggle";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { headers } from "next/headers";
 import { Toaster } from "@/components/ui/toaster";
 
 const font = DM_Sans({ subsets: ["latin"] });

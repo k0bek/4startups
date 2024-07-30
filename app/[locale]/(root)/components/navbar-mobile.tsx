@@ -1,12 +1,16 @@
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
-import { navbarLinks } from "@/constants";
 import { useTranslations } from "next-intl";
-import BurgerButton from "@/components/landing/burger-button";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
+import { Session } from "next-auth";
+import LanguageSelector from "@/components/landing/language-selector";
 
-const NavbarMobile = () => {
+interface NavbarMobileProps {
+  session: Session | null;
+}
+
+const NavbarMobile = ({ session }: NavbarMobileProps) => {
   const t = useTranslations("LandingPage");
 
   return (
@@ -21,7 +25,37 @@ const NavbarMobile = () => {
           />
         </Link>
       </div>
-      <Sheet>
+      <div className="flex items-center gap-2">
+        <LanguageSelector />
+        {session ? (
+          <HoverBorderGradientButton>
+            <Link
+              href="/sign-in"
+              className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
+            >
+              {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
+            </Link>
+          </HoverBorderGradientButton>
+        ) : (
+          <HoverBorderGradientButton>
+            <Link
+              href="/sign-in"
+              className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
+            >
+              {t("Get started")} <ArrowRight className="ml-1 scale-75" />
+            </Link>
+          </HoverBorderGradientButton>
+        )}
+      </div>
+      <div className="animated-border" />
+    </div>
+  );
+};
+
+export default NavbarMobile;
+
+{
+  /* <Sheet>
         <SheetTrigger>
           <BurgerButton />
         </SheetTrigger>
@@ -55,10 +89,5 @@ const NavbarMobile = () => {
           </Link>
           <div className="animated-border-sheet" />
         </SheetContent>
-      </Sheet>
-      <div className="animated-border" />
-    </div>
-  );
-};
-
-export default NavbarMobile;
+      </Sheet> */
+}

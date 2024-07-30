@@ -1,17 +1,17 @@
 "use server";
 
-import { useFormSchemas } from "@/lib/form-schemas";
+import { formSchemaSignUp } from "@/lib/form-schemas";
 import prisma from "@/lib/prisma";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+import { z } from "zod";
 
-export const signup = async (values: any) => {
+export const signup = async (values: z.infer<typeof formSchemaSignUp>) => {
   try {
-    // const { formSchemaSignUp } = useFormSchemas();
-    // const validatedFields = formSchemaSignUp.safeParse(values);
+    const validatedFields = formSchemaSignUp.safeParse(values);
 
-    // if (!validatedFields.success) {
-    //   return { error: "Invalid fields." };
-    // }
+    if (!validatedFields.success) {
+      return { error: "Invalid fields." };
+    }
     const { fullName, password, email } = values;
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,7 +39,7 @@ export const signup = async (values: any) => {
 
     return {
       success: "User created successfully.",
-      subSuccess: "You are now logged in",
+      subSuccess: "Please sign in now.",
     };
   } catch (error) {
     console.error("Signup error:", error);

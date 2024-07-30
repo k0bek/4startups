@@ -34,7 +34,8 @@
     "The insights and visualizations provided by 4Startups were game-changing for our startup Their AI-driven approach gave us a clear picture of our market position and growth possibilities, setting us on the path to success": "The insights and visualizations provided by 4Startups were game-changing for our startup. Their AI-driven approach gave us a clear picture of our market position and growth possibilities, setting us on the path to success.",
     "Gain some useful knowledge": "Gain some useful knowledge",
     "Read article": "Read article",
-    "Published": "Published"
+    "Published": "Published",
+    "Go to dashboard": "Go to dashboard"
   },
   "AuthPages": {
     "Enter your credentials": "Enter your credentials.",
@@ -58,6 +59,10 @@
     "Password must contain at least one number": "Password must contain at least one number",
     "Password must contain at least one special character": "Password must contain at least one special character",
     "Please enter your password": "Please enter your password",
-    "Must have at least 8 characters": "Must have at least 8 characters"
+    "Must have at least 8 characters": "Must have at least 8 characters",
+    "You are not signed in": "You are not signed in",
+    "Please type email and password again": "Please type email and password again",
+    "You are signed in": "You are signed in",
+    "Welcome back!": "Welcome back!"
   }
 }
