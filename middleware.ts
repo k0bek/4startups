@@ -6,9 +6,9 @@ import { auth } from "@/auth";
 import { locales, type Locale } from "@/config/locales";
 import createMiddleware from "next-intl/middleware";
 
-const publicPages = ["/", "/sign-in", "/sign-up", "/blog", "/blog/[^/]+"];
+const publicPages = ["/", "/sign-in", "/sign-up", "/blog/[^/]+"];
 
-const authPages = ["/sign-in", "/sign-up", "dashboard"];
+const authPages = ["/sign-in", "/sign-up"];
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(

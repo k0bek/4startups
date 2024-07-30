@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { SignInForm } from "./components/sign-in-form";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -3,14 +3,9 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
-import { Session } from "next-auth";
 import LanguageSelector from "@/components/landing/language-selector";
 
-interface NavbarMobileProps {
-  session: Session | null;
-}
-
-const NavbarMobile = ({ session }: NavbarMobileProps) => {
+const NavbarMobile = () => {
   const t = useTranslations("LandingPage");
 
   return (
@@ -27,25 +22,14 @@ const NavbarMobile = ({ session }: NavbarMobileProps) => {
       </div>
       <div className="flex items-center gap-2">
         <LanguageSelector />
-        {session ? (
-          <HoverBorderGradientButton>
-            <Link
-              href="/sign-in"
-              className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
-            >
-              {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
-            </Link>
-          </HoverBorderGradientButton>
-        ) : (
-          <HoverBorderGradientButton>
-            <Link
-              href="/sign-in"
-              className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
-            >
-              {t("Get started")} <ArrowRight className="ml-1 scale-75" />
-            </Link>
-          </HoverBorderGradientButton>
-        )}
+        <HoverBorderGradientButton>
+          <Link
+            href="/sign-in"
+            className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
+          >
+            {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
+          </Link>
+        </HoverBorderGradientButton>
       </div>
       <div className="animated-border" />
     </div>

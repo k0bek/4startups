@@ -1,5 +1,4 @@
 import { client } from "@/sanity/client";
-import post from "@/sanity/schemaTypes/post";
 import { groq } from "next-sanity";
 import BlogListItem from "./blog-list-item";
 import { getLocale, getTranslations } from "next-intl/server";

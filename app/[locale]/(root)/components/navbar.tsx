@@ -4,14 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
 import MaxWidthWrapper from "@/components/shared/max-width-cointainer";
-import { Session } from "next-auth";
 import LanguageSelector from "@/components/landing/language-selector";
 
-interface NavbarProps {
-  session: Session | null;
-}
-
-const Navbar = ({ session }: NavbarProps) => {
+const Navbar = () => {
   const t = useTranslations("LandingPage");
 
   return (
@@ -43,22 +38,12 @@ const Navbar = ({ session }: NavbarProps) => {
           <div className="flex items-center gap-2">
             <LanguageSelector />
             <HoverBorderGradientButton>
-              {session ? (
-                <Link
-                  href="/dashboard"
-                  className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 "
-                >
-                  {t("Go to dashboard")}{" "}
-                  <ArrowRight className="ml-1 scale-75" />
-                </Link>
-              ) : (
-                <Link
-                  href="/sign-in"
-                  className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 "
-                >
-                  {t("Get started")} <ArrowRight className="ml-1 scale-75" />
-                </Link>
-              )}
+              <Link
+                href="/dashboard"
+                className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 "
+              >
+                {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
+              </Link>
             </HoverBorderGradientButton>
           </div>
         </div>

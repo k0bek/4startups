@@ -16,7 +16,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
 import Link from "next/link";
-import { Session } from "next-auth";
 
 export const cardsList = [
   {
@@ -41,11 +40,7 @@ export const cardsList = [
   },
 ];
 
-interface CardsSectionProps {
-  session: Session | null;
-}
-
-const CardsSection = ({ session }: CardsSectionProps) => {
+const CardsSection = () => {
   const t = useTranslations("LandingPage");
   const [selectedCards, setSelectedCards] = useState<string[]>([]);
 
@@ -114,11 +109,10 @@ const CardsSection = ({ session }: CardsSectionProps) => {
       </ul>
       <HoverBorderGradientButton id="btn">
         <Link
-          href={session ? "/dashboard" : "/sign-in"}
+          href={"/sign-in"}
           className="flex items-center justify-center text-secondary-foreground hover:text-hover  duration-1000 ml-1 whitespace-nowrap w-[15rem] md:w-[27rem] text-xl font-semibold px-4 py-2 "
         >
-          {session ? t("Go to dashboard") : t("Get started")}{" "}
-          <ArrowRight className="ml-1" />
+          {t("Get started")} <ArrowRight className="ml-1" />
         </Link>
       </HoverBorderGradientButton>
     </div>
