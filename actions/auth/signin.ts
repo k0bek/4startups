@@ -18,6 +18,7 @@ export const signin = async (values: z.infer<typeof formSchemaSignIn>) => {
     await signIn("credentials", {
       email,
       password,
+      redirectTo: "/dashboard",
     });
   } catch (error) {
     if (error instanceof AuthError) {

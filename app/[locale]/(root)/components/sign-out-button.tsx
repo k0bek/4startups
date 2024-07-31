@@ -1,5 +1,6 @@
 import { signOut } from "@/auth";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
+import { useToast } from "@/components/ui/use-toast";
 import { LogOut } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 const SignOutButton = async () => {

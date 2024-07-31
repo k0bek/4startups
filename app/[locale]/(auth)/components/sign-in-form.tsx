@@ -47,7 +47,14 @@ export function SignInForm() {
         description: t("Please type email and password again"),
         variant: "destructive",
       });
+    } else {
+      toast({
+        title: t("You are signed in"),
+        description: t("Welcome back!"),
+        variant: "success",
+      });
     }
+
     setIsPending(false);
   }
 

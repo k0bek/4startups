@@ -32,7 +32,7 @@ const NavbarMobile = ({ session }: SessionT) => {
               href={"/sign-in"}
               className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 gap-2"
             >
-              {t("Get started")} <LogOut className="ml-1 scale-75" />
+              {t("Get started")} <ArrowRight className="scale-75 ml-1" />
             </Link>
           </HoverBorderGradientButton>
         )}

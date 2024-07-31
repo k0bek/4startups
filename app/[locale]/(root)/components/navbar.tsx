@@ -6,7 +6,6 @@ import { HoverBorderGradientButton } from "@/components/shared/hover-border-grad
 import MaxWidthWrapper from "@/components/shared/max-width-cointainer";
 import LanguageSelector from "@/components/landing/language-selector";
 import { SessionT } from "@/types";
-import { signOut } from "@/auth";
 import SignOutButton from "./sign-out-button";
 
 const Navbar = ({ session }: SessionT) => {
@@ -48,7 +47,7 @@ const Navbar = ({ session }: SessionT) => {
                   href={"/sign-in"}
                   className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 gap-1"
                 >
-                  {t("Get started")} <LogOut className="ml-1 scale-75" />
+                  {t("Get started")} <ArrowRight className="scale-75 ml-1" />
                 </Link>
               </HoverBorderGradientButton>
             )}
