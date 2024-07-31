@@ -35,7 +35,9 @@
     "Gain some useful knowledge": "Gain some useful knowledge",
     "Read article": "Read article",
     "Published": "Published",
-    "Go to dashboard": "Go to dashboard"
+    "Go to dashboard": "Go to dashboard",
+    "Sign In": "Sign In",
+    "Log out": "Log Out"
   },
   "AuthPages": {
     "Enter your credentials": "Enter your credentials.",

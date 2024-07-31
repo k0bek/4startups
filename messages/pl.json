@@ -35,7 +35,8 @@
     "Gain some useful knowledge": "Poznaj nasze najświeższe wpisy",
     "Read article": "Przeczytaj artykuł",
     "Published": "Opublikowano",
-    "Go to dashboard": "Przejdź do dashboardu"
+    "Go to dashboard": "Przejdź do dashboardu",
+    "Log out": "Wyloguj się"
   },
   "AuthPages": {
     "Enter your credentials": "Wprowadź swoje dane uwierzytelniające.",

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogOut } from "lucide-react";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
 import LanguageSelector from "@/components/landing/language-selector";
+import { SessionT } from "@/types";
+import SignOutButton from "./sign-out-button";
 
-const NavbarMobile = () => {
+const NavbarMobile = ({ session }: SessionT) => {
   const t = useTranslations("LandingPage");
 
   return (
@@ -22,14 +24,18 @@ const NavbarMobile = () => {
       </div>
       <div className="flex items-center gap-2">
         <LanguageSelector />
-        <HoverBorderGradientButton>
-          <Link
-            href="/sign-in"
-            className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 "
-          >
-            {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
-          </Link>
-        </HoverBorderGradientButton>
+        {session ? (
+          <SignOutButton />
+        ) : (
+          <HoverBorderGradientButton>
+            <Link
+              href={"/sign-in"}
+              className="flex items-center text-secondary-foreground hover:text-hover transition-all text-sm duration-1000 ml-1 whitespace-nowrap px-3 py-2 gap-2"
+            >
+              {t("Get started")} <LogOut className="ml-1 scale-75" />
+            </Link>
+          </HoverBorderGradientButton>
+        )}
       </div>
       <div className="animated-border" />
     </div>

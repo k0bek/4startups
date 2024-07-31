@@ -1,3 +1,5 @@
+import { Session } from "next-auth";
+
 declare type Locale = "en" | "pl";
 declare type Headings =
   | "Growth Prediction"
@@ -27,4 +29,8 @@ interface Post extends Base {
   description: string;
   meta?: MetaFields;
   excerpt: string;
+}
+
+interface SessionT {
+  session: Session | null;
 }

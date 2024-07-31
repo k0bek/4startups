@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { HoverBorderGradientButton } from "@/components/shared/hover-border-gradient";
 import MaxWidthWrapper from "@/components/shared/max-width-cointainer";
 import LanguageSelector from "@/components/landing/language-selector";
+import { SessionT } from "@/types";
+import { signOut } from "@/auth";
+import SignOutButton from "./sign-out-button";
 
-const Navbar = () => {
+const Navbar = ({ session }: SessionT) => {
   const t = useTranslations("LandingPage");
 
   return (
@@ -37,14 +40,18 @@ const Navbar = () => {
           </nav> */}
           <div className="flex items-center gap-2">
             <LanguageSelector />
-            <HoverBorderGradientButton>
-              <Link
-                href="/dashboard"
-                className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 "
-              >
-                {t("Go to dashboard")} <ArrowRight className="ml-1 scale-75" />
-              </Link>
-            </HoverBorderGradientButton>
+            {session ? (
+              <SignOutButton />
+            ) : (
+              <HoverBorderGradientButton>
+                <Link
+                  href={"/sign-in"}
+                  className="flex items-center text-secondary-foreground hover:text-hover transition-all duration-1000 ml-1 whitespace-nowrap px-4 py-2 gap-1"
+                >
+                  {t("Get started")} <LogOut className="ml-1 scale-75" />
+                </Link>
+              </HoverBorderGradientButton>
+            )}
           </div>
         </div>
       </MaxWidthWrapper>
