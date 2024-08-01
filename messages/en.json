@@ -37,7 +37,8 @@
     "Published": "Published",
     "Go to dashboard": "Go to dashboard",
     "Sign In": "Sign In",
-    "Log out": "Log Out"
+    "Log out": "Log Out",
+    "Return home": "Return home"
   },
   "AuthPages": {
     "Enter your credentials": "Enter your credentials.",
@@ -65,6 +66,8 @@
     "You are not signed in": "You are not signed in",
     "Please type email and password again": "Please type email and password again",
     "You are signed in": "You are signed in",
-    "Welcome back!": "Welcome back!"
+    "Welcome back!": "Welcome back!",
+    "Continue with Google": "Continue with Google",
+    "Email is already linked to another account": "Email is already linked to another account."
   }
 }

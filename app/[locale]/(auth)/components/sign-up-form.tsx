@@ -18,6 +18,8 @@ import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { signup } from "@/actions/auth/signup";
 import { useState, useTransition } from "react";
+import Image from "next/image";
+import GoogleAuth from "./google-auth";
 
 export function SignUpForm() {
   const [success, setSuccess] = useState<string | undefined>("");
@@ -93,75 +95,78 @@ export function SignUpForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-4">
-        <FormField
-          control={form.control}
-          name="fullName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("Full name")}</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="John Doe"
-                  {...field}
-                  className="w-full"
-                  disabled={isPending}
-                />
-              </FormControl>
-              <FormMessage className="text-red-500" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="example@example.com"
-                  {...field}
-                  className="w-full"
-                  disabled={isPending}
-                />
-              </FormControl>
-              <FormMessage className="text-red-500" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("Password")}</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder={t("Must have at least 8 characters")}
-                  {...field}
-                  className="w-full"
-                  type="password"
-                  disabled={isPending}
-                />
-              </FormControl>
-              <FormMessage className="text-red-500" />
-            </FormItem>
-          )}
-        />
-        <div className="w-full flex flex-col gap-3 items-center">
+    <>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-4">
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("Full name")}</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="John Doe"
+                    {...field}
+                    className="w-full"
+                    disabled={isPending}
+                  />
+                </FormControl>
+                <FormMessage className="text-red-500" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="example@example.com"
+                    {...field}
+                    className="w-full"
+                    disabled={isPending}
+                  />
+                </FormControl>
+                <FormMessage className="text-red-500" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("Password")}</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={t("Must have at least 8 characters")}
+                    {...field}
+                    className="w-full"
+                    type="password"
+                    disabled={isPending}
+                  />
+                </FormControl>
+                <FormMessage className="text-red-500" />
+              </FormItem>
+            )}
+          />
           <Button type="submit" className="w-full" disabled={isPending}>
             {t("Sign Up")}
           </Button>
-          <p>
-            {t("Already have an account?")}{" "}
-            <Link href="/sign-in" className="font-bold">
-              {t("Sign In")}
-            </Link>
-          </p>
-        </div>
-      </form>
-    </Form>
+        </form>
+      </Form>
+      <div className="w-full flex flex-col gap-3 items-center mt-4">
+        <GoogleAuth />
+        <p>
+          {t("Already have an account?")}{" "}
+          <Link href="/sign-in" className="font-bold">
+            {t("Sign In")}
+          </Link>
+        </p>
+      </div>
+    </>
   );
 }

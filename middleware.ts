@@ -8,7 +8,7 @@ import createMiddleware from "next-intl/middleware";
 
 const publicPages = ["/", "/sign-in", "/sign-up", "/blog/[^/]+"];
 
-const authPages = ["/sign-in", "/sign-up"];
+const authPages = ["/sign-in", "/sign-up", "/auth/error"];
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
   return RegExp(

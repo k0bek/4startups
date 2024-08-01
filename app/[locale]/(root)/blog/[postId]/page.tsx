@@ -28,7 +28,7 @@ const BlogPage = async ({ params: { postId } }: BlogPageProps) => {
 
   return (
     <MaxWidthWrapper>
-      <article className="w-full mt-10 flex flex-col gap-8">
+      <article className="w-full mt-10 flex flex-col gap-8 py-4 pb-12">
         <div className="lg:w-3/5 flex flex-col gap-6">
           <span className="font-medium text-secondary-foreground text-sm lg:text-base -mb-4">
             {t("Published")} {useEuropeanDate(post._updatedAt)}

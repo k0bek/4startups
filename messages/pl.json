@@ -36,7 +36,8 @@
     "Read article": "Przeczytaj artykuł",
     "Published": "Opublikowano",
     "Go to dashboard": "Przejdź do dashboardu",
-    "Log out": "Wyloguj się"
+    "Log out": "Wyloguj się",
+    "Return home": "Wróć do strony głównej"
   },
   "AuthPages": {
     "Enter your credentials": "Wprowadź swoje dane uwierzytelniające.",
@@ -64,6 +65,8 @@
     "You are not signed in": "Nie jesteś zalogowany",
     "Please type email and password again": "Wpisz email i hasło ponownie",
     "You are signed in": "Jesteś zalogowany",
-    "Welcome back!": "Witamy ponownie!"
+    "Welcome back!": "Witamy ponownie!",
+    "Continue with Google": "Kontynuuj z Google",
+    "Email is already linked to another account": "Adres email jest już zajęty przez inne konto."
   }
 }
